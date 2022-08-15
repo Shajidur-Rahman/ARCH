@@ -1,0 +1,29 @@
+ls /sys/firmware/efi/efivars --> verify efi boot
+timedatectl set-ntp true --> update the clock
+cfdisk --> file system making 
+mkfs.ext4 /dev/root_partition --> formate file 
+mkswap /dev/swap_partition --> make swap memory 
+swapon /dev/swap_partition --> enable swap memory
+mount /dev/root_partition /mnt --> mount 
+mkdir /mnt/efi -->
+mount /dev/windows_efi -->
+pacstrap /mnt base linux linux-firmware --> install to run the softwae 
+genfstab -U /mnt >> /mnt/etc/fstab --> 
+arch-chroot /mnt --> change the root 
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime --> change time
+hwclock --systohc --> 
+pacman -Sy nano --> install nano 
+nano /etc/locale.gen --> edit 
+(en_US.UTF-8 UTF-8) uncomment it 
+locale-gen
+nano /etc/locale.conf --> create a file (LANG=en_US.UTF-8) wite it 
+nano /etc/hostname --> create a hostname file 
+nano /etc/hosts 
+pacman -Sy netctl
+pic1
+useradd -G wheel,audio,video -m shajidur
+passwd shajidur
+pacman -S grub efibootmgr 
+pacman -S 0s-prober
+pic2
+passwd
